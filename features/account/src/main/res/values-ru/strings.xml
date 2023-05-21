@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_page_title">Вход</string>
+    <string name="sign_up_page_title">Регистрация</string>
+    <string name="name_input_field">Имя</string>
+    <string name="surname_input_field">Фамилия</string>
+    <string name="email_input_field">E-Mail</string>
+    <string name="password_input_field">Пароль</string>
+    <string name="login_button_text">Войти</string>
+    <string name="to_sign_up_screen_button">К регистрации</string>
+    <string name="sign_up_button_text">Зарегестрироваться</string>
+    <string name="confirmation_code_input_field">Код потверждения</string>
+    <string name="confirmation_button_text">Потвердить</string>
+</resources>

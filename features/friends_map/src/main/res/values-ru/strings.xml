@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="for_today_filter_title">Сегодня</string>
+    <string name="for_yesterday_filter_title">Вчера</string>
+    <string name="for_the_week_filter_title">За неделю</string>
+</resources>

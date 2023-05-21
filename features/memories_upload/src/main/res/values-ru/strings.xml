@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery_section_title">Галерея</string>
+    <string name="upload">загрузить</string>
+    <string name="upload_error_message">Ошибка загрузки воспоминания</string>
+</resources>

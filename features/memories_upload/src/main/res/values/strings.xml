@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery_section_title">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="upload_error_message">Memory upload error</string>
+</resources>

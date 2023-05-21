@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="friendship_request_text">Хочет добавить в друзья!</string>
+    <string name="accept_request">Принять</string>
+    <string name="decline_request">Отклонить</string>
+    <string name="requests_title">Запросы</string>
+    <string name="friends_title">Друзья</string>
+    <string name="show_profile_button">Открыть профиль</string>
+    <string name="delete_friend_button">Удалить друга</string>
+</resources>

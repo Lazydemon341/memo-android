@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="memories_list_screen_header">Memories list</string>
+    <string name="generate_new_memory">Generate new memories</string>
+    <string name="empty_memories_list_caption">Now the list of memories is empty.</string>
+    <string name="generate_new_memory_caption">Generate new memory!</string>
+    <string name="notification_caption_in_progress">Generating new memories…</string>
+    <string name="notification_title_in_progress">Memo app memories</string>
+    <string name="notification_title_generating_done">Memo app memories</string>
+    <string name="notification_caption_generating_done">We have a generated memories for you. Let\'s take a look!</string>
+</resources>

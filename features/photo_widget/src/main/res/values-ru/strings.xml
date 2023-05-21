@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="photo_widget_label">Memo</string>
+    <string name="photo_widget_description">Фотографии ваших друзей на главном экране!</string>
+    <string name="photo_widget_preview_text">Как красиво!</string>
+    <string name="photo_widget_preview_location">📍Алтай, Россия</string>
+</resources>

@@ -1,0 +1,15 @@
+*.iml
+.gradle/
+local.properties
+.idea/*
+.DS_Store
+build/
+captures/
+.externalNativeBuild/
+projectFilesBackup/
+
+#code styles
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml

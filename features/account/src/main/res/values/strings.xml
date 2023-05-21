@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_page_title">Log in</string>
+    <string name="sign_up_page_title">Sign up</string>
+    <string name="name_input_field">Name</string>
+    <string name="surname_input_field">Surname</string>
+    <string name="email_input_field">E-Mail</string>
+    <string name="password_input_field">Password</string>
+    <string name="login_button_text">Log in</string>
+    <string name="to_sign_up_screen_button">Sign up here</string>
+    <string name="sign_up_button_text">Sign up</string>
+    <string name="confirmation_code_input_field">Confirmation code</string>
+    <string name="confirmation_button_text">Confirm</string>
+</resources>

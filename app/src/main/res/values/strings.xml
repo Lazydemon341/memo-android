@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Memo</string>
+    <string name="snackbar_message_not_connected">You aren’t connected to the internet</string>
+    <string name="feed_tab_title">Feed</string>
+    <string name="camera_tab_title">Camera</string>
+</resources>

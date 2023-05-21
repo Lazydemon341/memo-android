@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snackbar_message_not_connected">Вы не подключены к интернету</string>
+    <string name="feed_tab_title">Лента</string>
+    <string name="camera_tab_title">Камера</string>
+</resources>

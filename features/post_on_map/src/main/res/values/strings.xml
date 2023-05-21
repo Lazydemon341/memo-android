@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="post_image_loading_error">Photo loading error</string>
+    <string name="post_image_places_loading_error">Places loading error</string>
+    <string name="post_image_places_near_tip">Places nearby</string>
+</resources>

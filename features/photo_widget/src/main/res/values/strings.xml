@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="photo_widget_label">Memo</string>
+    <string name="photo_widget_description">Pictures from your friends, on your home screen.</string>
+    <string name="photo_widget_preview_text">How beautiful it is!</string>
+    <string name="photo_widget_preview_location">📍Altay, Russia</string>
+</resources>

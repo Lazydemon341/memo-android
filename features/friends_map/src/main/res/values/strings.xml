@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="for_the_week_filter_title">Week</string>
+    <string name="for_today_filter_title">Today</string>
+    <string name="for_yesterday_filter_title">Yesterday</string>
+</resources>

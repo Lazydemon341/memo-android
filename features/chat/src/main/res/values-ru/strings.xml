@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="jump_to_bottom_button_text">Вниз</string>
+    <string name="user_input_hint">Сообщение</string>
+    <string name="send_button_content_description">Отправить</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_profile_pic_size">36dp</dimen>
+    <dimen name="widget_corners_radius">48dp</dimen>
+    <dimen name="widget_text_corners_shape">16dp</dimen>
+    <dimen name="widget_geo_tv_height">12dp</dimen>
+</resources>

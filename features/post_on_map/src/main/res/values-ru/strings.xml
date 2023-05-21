@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="post_image_loading_error">Ошибка загрузки фото</string>
+    <string name="post_image_places_loading_error">Ошибка загрузки мест рядом</string>
+    <string name="post_image_places_near_tip">Интересные места рядом</string>
+</resources>

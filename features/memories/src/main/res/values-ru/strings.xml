@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main_section_title">Главные</string>
+    <string name="gallery_section_title">Галерея</string>
+</resources>

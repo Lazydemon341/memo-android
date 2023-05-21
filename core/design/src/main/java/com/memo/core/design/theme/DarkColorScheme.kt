@@ -1,0 +1,35 @@
+package com.memo.core.design.theme
+
+import androidx.compose.material3.darkColorScheme
+
+internal val MemoAppDarkColorScheme = darkColorScheme(
+    primary = darkPrimary,
+    onPrimary = darkOnPrimary,
+    primaryContainer = darkPrimaryContainer,
+    onPrimaryContainer = darkOnPrimaryContainer,
+    secondary = darkSecondary,
+    onSecondary = darkOnSecondary,
+    secondaryContainer = darkSecondaryContainer,
+    onSecondaryContainer = darkOnSecondaryContainer,
+    tertiary = darkTertiary,
+    onTertiary = darkOnTertiary,
+    tertiaryContainer = darkTertiaryContainer,
+    onTertiaryContainer = darkOnTertiaryContainer,
+    error = darkError,
+    errorContainer = darkErrorContainer,
+    onError = darkOnError,
+    onErrorContainer = darkOnErrorContainer,
+    background = darkBackground,
+    onBackground = darkOnBackground,
+    surface = darkSurface,
+    onSurface = darkOnSurface,
+    surfaceVariant = darkSurfaceVariant,
+    onSurfaceVariant = darkOnSurfaceVariant,
+    outline = darkOutline,
+    inverseOnSurface = darkInverseOnSurface,
+    inverseSurface = darkInverseSurface,
+    inversePrimary = darkInversePrimary,
+    surfaceTint = darkSurfaceTint,
+    outlineVariant = darkOutlineVariant,
+    scrim = darkScrim,
+)

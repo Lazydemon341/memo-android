@@ -1,0 +1,57 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/Theme.MemoApp.AppWidgetContainer">
+
+    <ImageView
+        android:id="@+id/photo_widget_photo"
+        android:src="@drawable/widget_preview_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/photo_widget_profile_icon"
+        android:src="@drawable/widget_profile_icon_preview"
+        android:layout_width="@dimen/widget_profile_pic_size"
+        android:layout_height="@dimen/widget_profile_pic_size"
+        android:layout_marginBottom="?attr/appWidgetPadding"
+        android:layout_marginStart="?attr/appWidgetPadding"
+        android:layout_alignBottom="@id/photo_widget_photo"
+        android:layout_alignStart="@id/photo_widget_photo" />
+
+    <LinearLayout
+        android:background="@drawable/widget_tv_background"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/widget_profile_pic_size"
+        android:layout_alignBottom="@id/photo_widget_profile_icon"
+        android:layout_alignTop="@id/photo_widget_profile_icon"
+        android:layout_toEndOf="@id/photo_widget_profile_icon"
+        android:layout_marginHorizontal="?attr/appWidgetPadding"
+        android:padding="4dp"
+        >
+
+        <TextView
+            android:id="@+id/photo_widget_caption_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo_widget_preview_text"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/photo_widget_location_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo_widget_preview_location"
+            android:gravity="center"
+            android:textSize="8sp"
+            android:maxLines="1" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string name="permission_denied_message">Без этого разрешения мы не сможем выгрузить информацию. Разрешите нам это сделать :)</string>
+    <string name="retry_permission_request">Перезапросить разрешения</string>
+    <string name="collect_all_photos_info">Собрать информацию о всех фото</string>
+    <string name="form_new_memory">Создать новое воспоминание</string>
+    <string name="empty_memories_list_message">Здесь пока пусто :(. Заполни воспоминание</string>
+    <string name="send_data_message">Отправить данные</string>
+    <string name="share_file">Отправить репорт</string>
+</resources>

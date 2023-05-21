@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="memories_list_screen_header">Список воспоминаний</string>
+    <string name="generate_new_memory">Создать новые воспоминания</string>
+    <string name="empty_memories_list_caption">Пока что список воспоминаний пуст.</string>
+    <string name="generate_new_memory_caption">Создайте новое воспоминание!</string>
+    <string name="notification_caption_in_progress">Создаем новые воспоминания для вас…</string>
+    <string name="notification_title_in_progress">Воспоминания Memo </string>
+    <string name="notification_title_generating_done">Воспоминания Memo</string>
+    <string name="notification_caption_generating_done">Мы создали для вас воспоминания. Давайте взглянем!</string>
+</resources>
