@@ -2,4 +2,5 @@
 <resources>
     <string name="friends_count_title">Друзья</string>
     <string name="memories_count_title">Воспоминания</string>
+    <string name="logout_dialog_title">Вы действительно хотите выйти?</string>
 </resources>

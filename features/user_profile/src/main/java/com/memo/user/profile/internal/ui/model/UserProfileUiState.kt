@@ -9,6 +9,7 @@ internal sealed interface UserProfileUiState {
 
     @Immutable
     data class Ready(
+        val isCurrentUserProfile: Boolean,
         val avatarUrl: String?,
         val name: String,
         val email: String,

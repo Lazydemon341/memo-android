@@ -4,9 +4,7 @@ import android.graphics.drawable.Drawable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
@@ -54,6 +52,11 @@ internal fun Map(
             val photos = mapUiState.photos
             mapObjects.clear()
             photos.forEach { photo ->
+                val tapListener = MapObjectTapListener { _, _ ->
+                    onPhotoClicked(photo.postId)
+                    return@MapObjectTapListener true
+                }
+
                 Glide.with(context)
                     .load(photo.photoUrl)
                     // .placeholder(R.drawable.profile_avatar_placeholder)
@@ -68,12 +71,7 @@ internal fun Map(
                         ) {
                             val placemark = mapObjects.addPlacemark(photo.photoPoint)
                             placemark.setIcon(ImageProvider.fromBitmap(resource.toBitmap()))
-                            placemark.addTapListener(
-                                MapObjectTapListener { _, _ ->
-                                    onPhotoClicked(photo.postId)
-                                    return@MapObjectTapListener true
-                                }
-                            )
+                            placemark.addTapListener(tapListener)
                         }
 
                         override fun onLoadStarted(placeholder: Drawable?) {

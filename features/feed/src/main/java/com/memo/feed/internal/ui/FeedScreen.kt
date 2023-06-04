@@ -184,7 +184,7 @@ private fun PublicationInfo(
             text = profileName,
             color = Color.LightGray,
             fontSize = 18.sp,
-            modifier = Modifier.padding(horizontal = 12.dp)
+            modifier = Modifier.padding(horizontal = 12.dp).weight(1f, true)
         )
         Text(
             text = DateUtils.getRelativeTimeSpanString(

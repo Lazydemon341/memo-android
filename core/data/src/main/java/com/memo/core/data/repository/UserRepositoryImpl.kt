@@ -47,4 +47,10 @@ class UserRepositoryImpl @Inject constructor(
             tokensDataSource.setTokens(response.toLocalModel())
         }
     }
+
+    override suspend fun logout(): Result<Unit> {
+        return suspendRunCatching {
+            tokensDataSource.setTokens(null)
+        }
+    }
 }

@@ -20,6 +20,10 @@ internal class LoginViewModel @Inject constructor(
         MutableStateFlow(LoginUiState.Input)
     val loginUiState: StateFlow<LoginUiState> = _loginUiState
 
+    fun retryLogin() {
+        _loginUiState.value = LoginUiState.Input
+    }
+
     fun onLogin(authParams: AuthParams) {
         viewModelScope.launch {
             _loginUiState.value = LoginUiState.Loading
@@ -27,7 +31,7 @@ internal class LoginViewModel @Inject constructor(
             _loginUiState.value = result.map {
                 LoginUiState.Success
             }.getOrElse {
-                LoginUiState.Failure(it.message)
+                LoginUiState.Failure
             }
         }
     }

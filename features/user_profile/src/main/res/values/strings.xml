@@ -2,4 +2,5 @@
 <resources>
     <string name="friends_count_title">Friends</string>
     <string name="memories_count_title">Memories</string>
+    <string name="logout_dialog_title">Are you sure to logout?</string>
 </resources>

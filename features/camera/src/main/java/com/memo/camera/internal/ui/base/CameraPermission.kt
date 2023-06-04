@@ -8,10 +8,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
+import com.memo.features.camera.R
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -31,12 +33,11 @@ internal fun CameraPermission() {
     }
 
     val textToShow = if (permissionState.status.shouldShowRationale) {
-        "The camera is important for this app. Please grant the permission."
+        R.string.camera_permission_rationale
     } else {
-        "Camera permission required for this feature to be available. " +
-            "Please grant the permission"
+        R.string.camera_permission_description
     }
-    PermissionDialog(text = textToShow) {
+    PermissionDialog(text = stringResource(id = textToShow)) {
         permissionState.launchPermissionRequest()
     }
     permissionRequested = true

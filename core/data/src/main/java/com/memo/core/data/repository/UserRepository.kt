@@ -10,4 +10,6 @@ interface UserRepository {
     suspend fun confirmRegistration(confirmationCode: Int): Result<Unit>
 
     suspend fun auth(params: AuthParams): Result<Unit>
+
+    suspend fun logout(): Result<Unit>
 }

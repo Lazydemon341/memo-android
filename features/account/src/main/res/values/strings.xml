@@ -11,4 +11,8 @@
     <string name="sign_up_button_text">Sign up</string>
     <string name="confirmation_code_input_field">Confirmation code</string>
     <string name="confirmation_button_text">Confirm</string>
+    <string name="sign_up_failed_title">Sign up failed</string>
+    <string name="sign_up_failed_subtitle">Please try again</string>
+    <string name="confirmation_failed_title">Confirmation failed</string>
+    <string name="log_in_failed_title">Log in failed</string>
 </resources>

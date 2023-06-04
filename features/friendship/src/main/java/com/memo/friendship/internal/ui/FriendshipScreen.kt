@@ -125,7 +125,9 @@ private fun FriendshipScreenScaffold(
                     Text(
                         modifier = Modifier
                             .clickable { showRequests = !showRequests },
-                        text = if (showRequests) "Show friends" else "Show requests",
+                        text = stringResource(
+                            id = if (showRequests) R.string.show_friends_button else R.string.show_requests_button
+                        ),
                     )
                 }
             )
@@ -280,9 +282,9 @@ private fun FriendshipQRImage(
         Column(
             modifier = modifier,
         ) {
-            MemoSmallTitle(text = "Your friendship QR code")
+            MemoSmallTitle(text = stringResource(R.string.friendship_qr_title))
             MemoCommentText(
-                text = "Your friends can scan this QR code to make a friendship request to you!",
+                text = stringResource(R.string.friendship_qr_subtitle),
             )
             Spacer(modifier = Modifier.height(8.dp))
             Image(

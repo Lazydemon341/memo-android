@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -41,6 +42,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.memo.account.internal.ui.login.model.LoginUiState
 import com.memo.core.model.user.AuthParams
 import com.memo.features.account.R
+import com.memo.features.account.R.string
 
 @Composable
 internal fun LoginRoute(
@@ -56,6 +58,7 @@ internal fun LoginRoute(
         onLogin = viewModel::onLogin,
         loginUiState = loginUiState,
         onLoginSuccess = onLoginSuccess,
+        onRetryLogin = viewModel::retryLogin,
     )
 }
 
@@ -67,6 +70,7 @@ private fun LoginScreen(
     onLogin: (AuthParams) -> Unit,
     loginUiState: State<LoginUiState>,
     onLoginSuccess: () -> Unit,
+    onRetryLogin: () -> Unit,
 ) {
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
@@ -81,6 +85,7 @@ private fun LoginScreen(
                 onLogin = onLogin,
                 loginUiState = loginUiState.value,
                 onLoginSuccess = onLoginSuccess,
+                onRetryLogin = onRetryLogin,
             )
         }
     )
@@ -103,6 +108,7 @@ private fun LoginScreenContent(
     onLogin: (AuthParams) -> Unit,
     loginUiState: LoginUiState,
     onLoginSuccess: () -> Unit,
+    onRetryLogin: () -> Unit,
 ) {
     if (loginUiState == LoginUiState.Success) {
         onLoginSuccess()
@@ -114,9 +120,34 @@ private fun LoginScreenContent(
             .padding(padding),
     ) {
         LoginScreenInput(onNavigateToSignUp = onNavigateToSignUp, onLogin = onLogin)
+
         if (loginUiState == LoginUiState.Loading) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center),
+            )
+        }
+
+        if (loginUiState == LoginUiState.Failure) {
+            AlertDialog(
+                onDismissRequest = { onRetryLogin() },
+                title = {
+                    Text(text = stringResource(string.log_in_failed_title))
+                },
+                text = {
+                    Text(text = stringResource(string.sign_up_failed_subtitle))
+                },
+                confirmButton = {
+                    ClickableText(
+                        text = AnnotatedString(stringResource(android.R.string.ok)),
+                        onClick = { onRetryLogin() },
+                        style = TextStyle(
+                            color = Color.White,
+                            fontSize = 14.sp,
+                            fontFamily = FontFamily.Default,
+                            textDecoration = TextDecoration.Underline,
+                        ),
+                    )
+                }
             )
         }
     }
@@ -186,5 +217,6 @@ private fun LoginScreenPreview() {
         onLogin = {},
         loginUiState = loginUiState,
         onLoginSuccess = { },
+        onRetryLogin = {},
     )
 }

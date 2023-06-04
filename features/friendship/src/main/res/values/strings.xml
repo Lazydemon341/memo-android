@@ -7,4 +7,8 @@
     <string name="friends_title">Friends</string>
     <string name="show_profile_button">Show profile</string>
     <string name="delete_friend_button">Delete friend</string>
+    <string name="friendship_qr_title">Your friendship QR code</string>
+    <string name="friendship_qr_subtitle">Your friends can scan this QR code to make a friendship request to you!</string>
+    <string name="show_requests_button">Show requests</string>
+    <string name="show_friends_button">Show friends</string>
 </resources>

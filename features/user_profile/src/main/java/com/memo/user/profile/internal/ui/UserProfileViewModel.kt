@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.memo.core.data.repository.UserRepository
 import com.memo.user.profile.api.userProfileIDNavArgument
 import com.memo.user.profile.internal.domain.ChangeAvatarUseCase
 import com.memo.user.profile.internal.domain.GetProfileUseCase
@@ -22,6 +23,7 @@ internal class UserProfileViewModel @Inject constructor(
     private val getProfileUseCase: GetProfileUseCase,
     private val userProfileUiStateMapper: UserProfileUiStateMapper,
     private val changeAvatarUseCase: ChangeAvatarUseCase,
+    private val userRepository: UserRepository,
 ) : ViewModel() {
 
     private val userId: Long? =
@@ -43,15 +45,24 @@ internal class UserProfileViewModel @Inject constructor(
         }
     }
 
-    private suspend fun getUserProfileInner() {
+    fun logout() {
         viewModelScope.launch {
-            _userProfileState.value = UserProfileUiState.Loading
-            _userProfileState.value = getProfileUseCase(userId = userId)
-                .map { userProfileUiStateMapper.map(profile = it) }
-                .getOrElse {
-                    Timber.e(it)
-                    UserProfileUiState.Error
-                }
+            userRepository.logout()
         }
+    }
+
+    private suspend fun getUserProfileInner() {
+        _userProfileState.value = UserProfileUiState.Loading
+        _userProfileState.value = getProfileUseCase(userId = userId)
+            .map {
+                userProfileUiStateMapper.map(
+                    profile = it,
+                    isCurrentUser = userId == null,
+                )
+            }
+            .getOrElse {
+                Timber.e(it)
+                UserProfileUiState.Error
+            }
     }
 }

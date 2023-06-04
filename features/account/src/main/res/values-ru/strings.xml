@@ -11,4 +11,8 @@
     <string name="sign_up_button_text">Зарегестрироваться</string>
     <string name="confirmation_code_input_field">Код потверждения</string>
     <string name="confirmation_button_text">Потвердить</string>
+    <string name="sign_up_failed_title">Регистрация не удалась</string>
+    <string name="sign_up_failed_subtitle">Попробуйте еще раз</string>
+    <string name="confirmation_failed_title">Ошибка подтверждения</string>
+    <string name="log_in_failed_title">Авторизация не удалась</string>
 </resources>

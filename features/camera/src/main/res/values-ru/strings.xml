@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="camera_permission_rationale">Доступ к камере необходим для использования приложения. Пожалуйста, предоставьте его</string>
+    <string name="camera_permission_description">Доступ к камере необходим для использования приложения. Пожалуйста, предоставьте его</string>
+</resources>

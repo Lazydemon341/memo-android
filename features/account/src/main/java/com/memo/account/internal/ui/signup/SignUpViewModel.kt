@@ -26,6 +26,10 @@ internal class SignUpViewModel @Inject constructor(
         MutableStateFlow(ConfirmationUiState.Input)
     val confirmationUiState: StateFlow<ConfirmationUiState> = _confirmationUiState
 
+    fun retrySignUp() {
+        _signUpUiState.value = SignUpUiState.Input
+    }
+
     fun signUp(signUpParams: SignUpParams) {
         viewModelScope.launch {
             _signUpUiState.value = SignUpUiState.Loading
@@ -36,9 +40,13 @@ internal class SignUpViewModel @Inject constructor(
                 SignUpUiState.Success
             }.getOrElse { e ->
                 Timber.e(e)
-                SignUpUiState.Failure(e.message)
+                SignUpUiState.Failure
             }
         }
+    }
+
+    fun retryConfirmation() {
+        _confirmationUiState.value = ConfirmationUiState.Input
     }
 
     fun confirm(confirmationCode: Int) {
@@ -49,7 +57,7 @@ internal class SignUpViewModel @Inject constructor(
                 ConfirmationUiState.Success
             }.getOrElse { e ->
                 Timber.e(e)
-                ConfirmationUiState.Failure(e.message)
+                ConfirmationUiState.Failure
             }
         }
     }

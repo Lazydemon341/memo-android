@@ -5,8 +5,9 @@ import com.memo.user.profile.internal.domain.model.UserProfileMemory
 import javax.inject.Inject
 
 internal class UserProfileUiStateMapper @Inject constructor() {
-    fun map(profile: UserProfile): UserProfileUiState {
+    fun map(profile: UserProfile, isCurrentUser: Boolean): UserProfileUiState {
         return UserProfileUiState.Ready(
+            isCurrentUserProfile = isCurrentUser,
             avatarUrl = profile.avatarUrl,
             name = profile.name,
             email = profile.email,

@@ -20,7 +20,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons.Filled
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -55,7 +55,7 @@ internal fun CollapsedHeaderContent(
     profileUiStateProvider: () -> UserProfileUiState,
     modifier: Modifier = Modifier,
 ) {
-    val name = (profileUiStateProvider() as? UserProfileUiState.Ready)?.name.orEmpty()
+    val profileUiState = profileUiStateProvider() as? UserProfileUiState.Ready
     Box(
         modifier = modifier,
     ) {
@@ -73,21 +73,23 @@ internal fun CollapsedHeaderContent(
                 .clickable {
                     onTitleClick()
                 },
-            text = name,
+            text = profileUiState?.name.orEmpty(),
             color = Color.White.copy(alpha = collapsedFraction),
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
         )
-        Icon(
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .clickable {
-                    onMoreClick()
-                },
-            imageVector = Filled.Menu,
-            tint = Color.White,
-            contentDescription = "",
-        )
+        if (profileUiState?.isCurrentUserProfile == true) {
+            Icon(
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .clickable {
+                        onMoreClick()
+                    },
+                imageVector = Filled.Logout,
+                tint = Color.White,
+                contentDescription = "",
+            )
+        }
     }
 }
 
@@ -98,8 +100,9 @@ internal fun ExtendedHeaderContent(
     onAvatarChanged: (Uri) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val name = (profileUiStateProvider() as? UserProfileUiState.Ready)?.name.orEmpty()
-    val avatarUrl = (profileUiStateProvider() as? UserProfileUiState.Ready)?.avatarUrl.orEmpty()
+    val profileUiState = profileUiStateProvider() as? UserProfileUiState.Ready
+    val name = profileUiState?.name.orEmpty()
+    val avatarUrl = profileUiState?.avatarUrl.orEmpty()
     Box(
         modifier = modifier,
     ) {
@@ -134,6 +137,7 @@ internal fun ExtendedHeaderContent(
                 extendedFraction = extendedFraction,
                 avatarUrl = avatarUrl,
                 onAvatarChanged = onAvatarChanged,
+                isCurrentUser = profileUiState?.isCurrentUserProfile == true,
             )
             Spacer(modifier = Modifier.height(8.dp))
             UserFullName(
@@ -157,6 +161,7 @@ private fun UserAvatar(
     extendedFraction: Float,
     avatarUrl: String,
     onAvatarChanged: (Uri) -> Unit,
+    isCurrentUser: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val size = (minAvatarSize + (maxAvatarSize - minAvatarSize) * extendedFraction).dp
@@ -173,7 +178,13 @@ private fun UserAvatar(
     GlideImage(
         modifier = modifier
             .size(size)
-            .clickable { launcher.launch(request) },
+            .let {
+                if (isCurrentUser) {
+                    it.clickable { launcher.launch(request) }
+                } else {
+                    it
+                }
+            },
         imageModel = { avatarUrl },
         requestOptions = { RequestOptions().override(maxAvatarSize) },
         success = {

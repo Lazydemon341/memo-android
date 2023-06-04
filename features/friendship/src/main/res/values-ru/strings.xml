@@ -7,4 +7,8 @@
     <string name="friends_title">Друзья</string>
     <string name="show_profile_button">Открыть профиль</string>
     <string name="delete_friend_button">Удалить друга</string>
+    <string name="friendship_qr_title">Ваш персональный QR-код</string>
+    <string name="friendship_qr_subtitle">Ваши знакомые могут отсканировать данный QR-код чтобы добавить вас в друзья!</string>
+    <string name="show_requests_button">Показать заявки</string>
+    <string name="show_friends_button">Показать друзей</string>
 </resources>

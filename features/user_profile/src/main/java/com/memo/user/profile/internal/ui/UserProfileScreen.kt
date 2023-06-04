@@ -6,16 +6,28 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.memo.core.design.theme.MemoAppTheme
+import com.memo.features.user_profile.R
 import com.memo.user.profile.internal.ui.base.CollapsedHeaderContent
 import com.memo.user.profile.internal.ui.base.ExtendedHeaderContent
 import com.memo.user.profile.internal.ui.base.ProfileMemoriesList
@@ -40,6 +52,7 @@ internal fun UserProfileScreen(
         profileUiStateProvider = userProfileUiState::value,
         onMemoryClick = onMemoryClick,
         onAvatarChanged = viewModel::avatarChanged,
+        onLogout = viewModel::logout,
     )
 }
 
@@ -49,10 +62,12 @@ private fun UserProfileScaffold(
     profileUiStateProvider: () -> UserProfileUiState,
     onMemoryClick: (Long) -> Unit,
     onAvatarChanged: (Uri) -> Unit,
+    onLogout: () -> Unit,
 ) {
     val toolbarScaffoldState = rememberCollapsingToolbarScaffoldState()
     val postsListState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
+    var showLogoutDialog by remember { mutableStateOf(false) }
     LaunchedEffect(Unit) {
         postsListState.scrollToItem(0)
     }
@@ -75,7 +90,7 @@ private fun UserProfileScaffold(
                     }
                 },
                 onMoreClick = {
-                    // TODO
+                    showLogoutDialog = true
                 },
                 profileUiStateProvider = profileUiStateProvider,
             )
@@ -88,6 +103,11 @@ private fun UserProfileScaffold(
             )
         },
     ) {
+        LogoutDialog(
+            shouldShow = showLogoutDialog,
+            onDismiss = { showLogoutDialog = false },
+            onLogout = onLogout,
+        )
         ProfileMemoriesList(
             modifier = Modifier
                 .fillMaxSize()
@@ -102,6 +122,41 @@ private fun UserProfileScaffold(
     }
 }
 
+@Composable
+private fun LogoutDialog(
+    shouldShow: Boolean,
+    onDismiss: () -> Unit,
+    onLogout: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    if (shouldShow) {
+        AlertDialog(
+            modifier = modifier,
+            onDismissRequest = onDismiss,
+            title = {
+                Text(text = stringResource(R.string.logout_dialog_title))
+            },
+            confirmButton = {
+                ClickableText(
+                    text = AnnotatedString(stringResource(id = android.R.string.ok)),
+                    style = TextStyle.Default.copy(color = MaterialTheme.colorScheme.onPrimary),
+                ) {
+                    onDismiss()
+                    onLogout()
+                }
+            },
+            dismissButton = {
+                ClickableText(
+                    text = AnnotatedString(stringResource(id = android.R.string.cancel)),
+                    style = TextStyle.Default.copy(color = MaterialTheme.colorScheme.onPrimary),
+                ) {
+                    onDismiss()
+                }
+            }
+        )
+    }
+}
+
 @Preview
 @Composable
 fun UserProfilePreview() {
@@ -111,6 +166,7 @@ fun UserProfilePreview() {
             profileUiStateProvider = { UserProfileUiState.Loading },
             onMemoryClick = {},
             onAvatarChanged = {},
+            onLogout = {},
         )
     }
 }
